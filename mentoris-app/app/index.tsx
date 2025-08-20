@@ -1,4 +1,5 @@
 import { Text, View } from "react-native";
+import askAI from "@/utils/AI";
 
 export default function Index() {
   return (
@@ -9,7 +10,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit index.tsx</Text>
+      <Text>{askAI()}</Text>
     </View>
   );
 }
