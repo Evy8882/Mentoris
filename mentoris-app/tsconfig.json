@@ -5,7 +5,9 @@
     "lib": ["ES2015", "DOM"],
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
   "include": [
     "**/*.ts",
