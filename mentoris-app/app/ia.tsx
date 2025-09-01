@@ -1,6 +1,9 @@
-import { View } from "react-native"
+import TabNavigator from "@/component/TabNavigator";
+import { View } from "react-native";
+
+
 export default function ChatIA(){
     return (
-        <View></View>
+        <View><TabNavigator></TabNavigator></View>
     )
 }

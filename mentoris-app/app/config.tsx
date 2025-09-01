@@ -1,6 +1,10 @@
+import TabNavigator from "@/component/TabNavigator"
 import { View } from "react-native"
+
 export default function Config(){
     return (
-        <View></View>
+        <View>
+            <TabNavigator></TabNavigator>
+        </View>
     )
 }

@@ -1,4 +1,5 @@
 import BotaoMateria from "@/component/botaoMateria";
+import TabNavigator from "@/component/TabNavigator";
 import { Dimensions, View } from "react-native";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
@@ -37,6 +38,7 @@ export default function Index() {
         <BotaoMateria nomeMateria="Português"></BotaoMateria>
         
       </View>
+      <TabNavigator/>
     </View>
   );
 }
