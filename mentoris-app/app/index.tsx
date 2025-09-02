@@ -1,10 +1,13 @@
 import BotaoMateria from "@/component/botaoMateria";
 import TabNavigator from "@/component/TabNavigator";
 import { Dimensions, View, Text } from "react-native";
+import { useRouter } from "expo-router";
+import Matematica from "./materias/matematica";
 
 const { width: screenWidth } = Dimensions.get("window");
 
 export default function Index() {
+  const router = useRouter();
   return (
     <View style={{ flex: 1, backgroundColor: "#f3f3f3" }}>
       {/* Header */}
@@ -24,22 +27,19 @@ export default function Index() {
       </View>
 
       {/* Cards */}
-      
-        <BotaoMateria
-          nomeMateria="Matemática"
-          descricao="Explore conteúdos de álgebra, geometria e cálculo."
-        />
-      
-        <BotaoMateria
-          nomeMateria="História"
-          descricao="Descubra eventos e figuras importantes."
-        />
-      
-        <BotaoMateria
-          nomeMateria="Ciências"
-          descricao="Aprenda sobre biologia, química e física."
-        />
-
+      <BotaoMateria
+        nomeMateria="Matemática"
+        descricao="Explore conteúdos de álgebra, geometria e cálculo."
+        onPress={() => router.push("/materias/matematica")}
+      />
+      <BotaoMateria
+        nomeMateria="História"
+        descricao="Descubra eventos e figuras importantes."
+      />
+      <BotaoMateria
+        nomeMateria="Ciências"
+        descricao="Aprenda sobre biologia, química e física."
+      />
       <TabNavigator />
     </View>
   );
