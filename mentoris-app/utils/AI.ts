@@ -1,11 +1,7 @@
 async function askAI(question: string): Promise<string> {
   try {
-    const result = await fetch('https://mentoris-backend.vercel.app/ask', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ question })
+    const result = await fetch(`https://nottle-api.vercel.app/?input=${question}`, {
+      method: 'GET'
     });
         if (!result.ok) {
       throw new Error('Erro na requisição: ' + result.status);
@@ -14,7 +10,7 @@ async function askAI(question: string): Promise<string> {
     const texto = await result.text();
     return texto;
   } catch (erro) {
-    return ("Erro ao conectar-se com a IA");
+    return ("Erro ao conectar-se com a IA: " + erro);
   }
 
 

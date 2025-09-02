@@ -15,6 +15,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import TabNavigator from "@/component/TabNavigator";
+import askAI from "@/utils/AI";
 
 export default function ChatIA() {
   const TAB_BAR_HEIGHT = 210; 
@@ -53,10 +54,13 @@ export default function ChatIA() {
     };
   }, []);
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (input.trim() === "") return;
     setMessages((prev) => [...prev, { id: Date.now(), text: input, from: "user" }]);
     setInput("");
+    const prompt = `Você é um assistente em API. Responda apenas em texto puro, sem formatação markdown nem blocos de código. Histórico de conversa:\n${messages.map(m => `${m.from === "user" ? "Usuário" : "Ment IA"}: ${m.text}`).join("\n")}\nUsuário: ${input}\n mensagem atual: ${input}  \n Ment IA:`;
+    const resposta = await askAI(prompt);
+    setMessages((prev) => [...prev, { id: Date.now() + 1, text: resposta, from: "bot" }]);
     setTimeout(() => {
       scrollRef.current?.scrollToEnd({ animated: true });
     }, 0);
