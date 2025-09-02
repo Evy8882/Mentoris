@@ -2,7 +2,6 @@ import BotaoMateria from "@/component/botaoMateria";
 import TabNavigator from "@/component/TabNavigator";
 import { Dimensions, View, Text } from "react-native";
 import { useRouter } from "expo-router";
-import Matematica from "./materias/matematica";
 
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -37,8 +36,13 @@ export default function Index() {
         descricao="Descubra eventos e figuras importantes."
       />
       <BotaoMateria
-        nomeMateria="Ciências"
-        descricao="Aprenda sobre biologia, química e física."
+        nomeMateria="Física"
+        descricao="Entenda os princípios que regem o universo."
+        onPress={() => router.push("/materias/fisica")}
+      />
+      <BotaoMateria
+        nomeMateria="Literatura"
+        descricao="Mergulhe em clássicos e autores contemporâneos."
       />
       <TabNavigator />
     </View>

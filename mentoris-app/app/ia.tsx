@@ -73,40 +73,42 @@ export default function ChatIA() {
       keyboardVerticalOffset={Platform.select({ ios: HEADER_HEIGHT + TAB_BAR_HEIGHT, android: 0 })}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
-          <View style={styles.header}>
-            <Ionicons name="book" size={24} color="#fff" />
-            <Text style={styles.headerText}>Mentoris</Text>
-          </View>
-
-          <Text style={styles.title}>Ment IA</Text>
-          <View style={styles.avatar} />
-
+        <View style={{ flex: 1 }}>
           <ScrollView
             ref={scrollRef}
-            style={styles.chatArea}
+            style={styles.container}
             contentContainerStyle={{ paddingVertical: 10, paddingBottom: TAB_BAR_HEIGHT + 140 }}
             keyboardShouldPersistTaps="handled"
             onContentSizeChange={() => scrollRef.current?.scrollToEnd({ animated: true })}
           >
-            {messages.map((msg) => (
-              <View
-                key={msg.id}
-                style={[
-                  styles.message,
-                  msg.from === "bot" ? styles.botMessage : styles.userMessage,
-                ]}
-              >
-                <Text
+            <View style={styles.header}>
+              <Ionicons name="book" size={24} color="#fff" />
+              <Text style={styles.headerText}>Mentoris</Text>
+            </View>
+
+            <Text style={styles.title}>Ment IA</Text>
+            <View style={styles.avatar} />
+
+            <View style={styles.chatArea}>
+              {messages.map((msg) => (
+                <View
+                  key={msg.id}
                   style={[
-                    styles.messageText,
-                    msg.from === "user" && styles.userMessageText,
+                    styles.message,
+                    msg.from === "bot" ? styles.botMessage : styles.userMessage,
                   ]}
                 >
-                  {msg.text}
-                </Text>
-              </View>
-            ))}
+                  <Text
+                    style={[
+                      styles.messageText,
+                      msg.from === "user" && styles.userMessageText,
+                    ]}
+                  >
+                    {msg.text}
+                  </Text>
+                </View>
+              ))}
+            </View>
           </ScrollView>
           <View
             style={[
@@ -136,7 +138,7 @@ export default function ChatIA() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#f5f5f5" },
+  container: { flex: 1, height: "100%", backgroundColor: "#f5f5f5" },
 
   header: {
     flexDirection: "row",
@@ -159,8 +161,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 
-  chatArea: { flex: 1, paddingHorizontal: 20 },
 
+  chatArea: { 
+    flex: 1, 
+    paddingHorizontal: 20,
+  },
   message: {
     maxWidth: "80%",
     padding: 10,

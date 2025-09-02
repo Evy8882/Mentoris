@@ -1,126 +1,53 @@
-import TabNavigator from "@/component/TabNavigator";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  Dimensions,
-} from "react-native";
-
-const { width: screenWidth } = Dimensions.get("window");
+import MateriaPage from "@/component/materiaPage";
 
 const cards = [
   {
-    title: "Introduction to Algebra",
-    subtitle: "Mathematics",
-    image: require("../../assets/images/react-logo.png"), // ajuste o caminho se necessário
+    title: "Introdução à Álgebra",
+    subtitle: "Matemática",
+    image: require("../../assets/images/react-logo.png"),
+    text: "A álgebra usa letras e símbolos para representar números e operações. Permite resolver equações, trabalhar com incógnitas e generalizar situações matemáticas. É a base para entender fórmulas e funções.",
   },
   {
-    title: "Introduction to Algebra",
-    subtitle: "Mathematics",
+    title: "Geometria",
+    subtitle: "Matemática",
     image: require("../../assets/images/react-logo.png"),
+    text: "Estuda formas, tamanhos e propriedades do espaço. Inclui pontos, retas, ângulos, triângulos, polígonos, circunferências e sólidos. Também abrange áreas, perímetros e volumes.",
   },
   {
-    title: "Introduction to Algebra",
-    subtitle: "Mathematics",
+    title: "Trigonometria",
+    subtitle: "Matemática",
     image: require("../../assets/images/react-logo.png"),
+    text: "Relaciona ângulos e lados em triângulos, usando razões como seno, cosseno e tangente. É útil para medir distâncias, alturas e em aplicações de física e engenharia.",
+  },
+  {
+    title: "Estatística e Probabilidade",
+    subtitle: "Matemática",
+    image: require("../../assets/images/react-logo.png"),
+    text: "A estatística organiza e interpreta dados através de tabelas, gráficos, média, mediana e desvio padrão. A probabilidade mede a chance de um evento acontecer, variando de 0 a 1.",
+  },
+  {
+    title: "Funções",
+    subtitle: "Matemática",
+    image: require("../../assets/images/react-logo.png"),
+    text: "Uma função relaciona cada valor de entrada a um único valor de saída. Exemplos: função afim (reta), quadrática (parábola) e exponencial. São essenciais para modelar situações do cotidiano.",
+  },
+  {
+    title: "Matemática Financeira",
+    subtitle: "Matemática",
+    image: require("../../assets/images/react-logo.png"),
+    text: "Trata de juros simples e compostos, porcentagem, descontos e prestações. Muito usada em bancos, compras, investimentos e planejamento financeiro.",
+  },
+  {
+    title: "Cálculo Básico",
+    subtitle: "Matemática",
+    image: require("../../assets/images/react-logo.png"),
+    text: "Introduz limites, derivadas e integrais. O limite descreve aproximações, a derivada mede taxas de variação e a integral calcula áreas e somas acumuladas. É base para a matemática avançada.",
   },
 ];
 
+
 export default function Matematica() {
   return (
-    <View style={{ flex: 1, backgroundColor: "#f3f3f3" }}>
-      {/* Header */}
-      <View
-        style={{
-          width: "100%",
-          height: 80,
-          backgroundColor: "#243A64",
-          justifyContent: "center",
-          paddingTop: 32,
-          paddingLeft: 24,
-        }}
-      >
-        <Text style={{ color: "#fff", fontSize: 22, fontWeight: "bold" }}>
-          Mentoris
-        </Text>
-      </View>
-      <ScrollView contentContainerStyle={{ paddingVertical: 16 }}>
-        {cards.map((card, idx) => (
-          <View
-            key={idx}
-            style={{
-              flexDirection: "row",
-              backgroundColor: "#dbeafe",
-              borderRadius: 18,
-              marginHorizontal: 16,
-              marginBottom: 24,
-              alignItems: "center",
-              padding: 16,
-              shadowColor: "#000",
-              shadowOpacity: 0.08,
-              shadowRadius: 6,
-              elevation: 2,
-            }}
-          >
-            <Image
-              source={card.image}
-              style={{
-                width: 70,
-                height: 70,
-                borderRadius: 16,
-                marginRight: 16,
-                backgroundColor: "#ccc",
-              }}
-              resizeMode="cover"
-            />
-            <View style={{ flex: 1 }}>
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  fontSize: 16,
-                  color: "#222",
-                  textAlign: "left",
-                }}
-              >
-                {card.title}
-              </Text>
-              <Text
-                style={{
-                  color: "#555",
-                  fontSize: 13,
-                  marginBottom: 12,
-                  textAlign: "left",
-                }}
-              >
-                {card.subtitle}
-              </Text>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: "#243A64",
-                  borderRadius: 16,
-                  paddingVertical: 8,
-                  alignItems: "center",
-                  width: 120,
-                }}
-              >
-                <Text
-                  style={{
-                    color: "#fff",
-                    fontWeight: "bold",
-                    fontSize: 15,
-                    textAlign: "center",
-                  }}
-                >
-                  Estudar
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        ))}
-      </ScrollView>
-      <TabNavigator />
-    </View>
+    <MateriaPage cards={cards}/>
   );
 }
