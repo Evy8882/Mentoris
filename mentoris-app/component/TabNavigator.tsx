@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   item: {
     alignItems: "center",
     justifyContent: "center",
+    display: "flex",
   },
   label: {
     color: "#fff",
